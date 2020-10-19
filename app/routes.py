@@ -68,3 +68,9 @@ def kitchen():
     return ("nothing")
 
 
+@app.route('/free')
+def free():
+    c = Covid.query.get(1)
+    return {'kitchen': c.kitchen, 'bathroom': c.bathroom}
+
+
