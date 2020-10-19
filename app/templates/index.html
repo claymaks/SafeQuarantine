@@ -1,16 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="ZkDaXGcau7aYkpayuNeNiFoEZRqv_S6P_fnQJu0D8VY" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Index</title>
-</head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('a#bathroom').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/bathroom',
+                function(data) {
+              //do nothing
+            });
+		location.reload();
+            return false;
+          });
+	$('a#kitchen').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/kitchen',
+                function(data) {
+              //do nothing
+            });
+		location.reload();	
+            return false;
+          });
+        });
+</script>
 
-<body>
-  Status : Live
-</body>
+<style>
+.bathroom_button {
+  background-color: {% if bathroom_bool %} #4CAF50; {% else %} #f44336; {% endif %}
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 
-</html>
+.kitchen_button {
+  background-color: {% if kitchen_bool %} #4CAF50; {% else %} #f44336; {% endif %}
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+</style>
+
+
+<div class='container'>
+<center>
+    <h1>Geddes SafeQuarantine</h1>
+	<table><tr>
+	
+        <td><form>
+            <a href=# id=bathroom><button class=bathroom_button>Bathroom</button></a>
+        </form></td>
+	<td><form>
+            <a href=# id=kitchen><button class=kitchen_button>Kitchen</button></a>
+        </form></td>
+	</tr></table>
+</center>
+</div

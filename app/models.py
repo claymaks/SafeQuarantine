@@ -9,7 +9,8 @@ class Covid(db.Model):
     kitchen = db.Column(db.Boolean)
     bathroom = db.Column(db.Boolean)
 
-    def __init__(self):
+    def __init__(self, id):
+        self.id = id
         self.kitchen = 0
         self.bathroom = 0
 
